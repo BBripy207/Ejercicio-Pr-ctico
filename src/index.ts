@@ -2,9 +2,13 @@ import express, { Request, Response } from 'express';
 import mongoose, { Schema, Document } from 'mongoose';
 import { MongoClient, ServerApiVersion } from 'mongodb';
 import { taskRouter } from './routes/tasks';
+import cors from 'cors';
+import path from 'path';
 
 const app = express();
+app.use(cors());
 app.use(express.json());
+app.use(express.static(path.join(__dirname, '../public')));
 
 // Conexión a MongoDB Atlas
 const uri = "mongodb+srv://Bbripy:Meliodas7.@bigdata.hvylt3a.mongodb.net/?retryWrites=true&w=majority&appName=BigData";
